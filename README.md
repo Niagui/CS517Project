@@ -150,8 +150,6 @@ mapf_surveillance/
 ├── validator.py           # post-solve solution validator
 ├── generate_instances.py  # writes JSON instances under ./instances
 ├── benchmark.py           # runs every instance and writes CSV + JSON results
-├── requirements.txt
-├── README.md
 ├── instances/             # generated scenario JSONs
 └── results/               # per-instance solver outputs
 ```
