@@ -1,0 +1,19 @@
+{
+  "status": "TIMEOUT",
+  "horizon": 25,
+  "solve_time_seconds": 121.2651,
+  "num_variables": 3120,
+  "num_bool_variables": 3016,
+  "num_int_variables": 104,
+  "num_clauses": 84248,
+  "clause_counts_per_group": {
+    "initial": 8,
+    "exactly_one": 104,
+    "movement": 74400,
+    "latency": 28,
+    "battery_drain": 9500,
+    "battery_reset": 104,
+    "battery_nonneg": 104
+  },
+  "paths": null
+}

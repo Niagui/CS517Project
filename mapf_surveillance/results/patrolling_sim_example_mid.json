@@ -1,0 +1,19 @@
+{
+  "status": "UNSAT",
+  "horizon": 18,
+  "solve_time_seconds": 3.9925,
+  "num_variables": 912,
+  "num_bool_variables": 855,
+  "num_int_variables": 57,
+  "num_clauses": 12233,
+  "clause_counts_per_group": {
+    "initial": 6,
+    "exactly_one": 57,
+    "movement": 9828,
+    "latency": 14,
+    "battery_drain": 2214,
+    "battery_reset": 57,
+    "battery_nonneg": 57
+  },
+  "paths": null
+}

@@ -1,0 +1,21 @@
+{
+  "nodes": [
+    0,
+    1
+  ],
+  "depot": 0,
+  "edges": [
+    [
+      0,
+      1,
+      1
+    ]
+  ],
+  "latency": {
+    "0": 999,
+    "1": 10
+  },
+  "num_drones": 1,
+  "battery": 5,
+  "horizon": 6
+}

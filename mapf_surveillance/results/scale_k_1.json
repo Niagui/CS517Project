@@ -1,0 +1,64 @@
+{
+  "status": "SAT",
+  "horizon": 15,
+  "solve_time_seconds": 0.0157,
+  "num_variables": 96,
+  "num_bool_variables": 80,
+  "num_int_variables": 16,
+  "num_clauses": 428,
+  "clause_counts_per_group": {
+    "initial": 2,
+    "exactly_one": 16,
+    "movement": 150,
+    "latency": 48,
+    "battery_drain": 180,
+    "battery_reset": 16,
+    "battery_nonneg": 16
+  },
+  "paths": [
+    {
+      "drone": 0,
+      "path": [
+        0,
+        4,
+        3,
+        2,
+        1,
+        0,
+        4,
+        3,
+        2,
+        1,
+        0,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "battery": [
+        10,
+        9,
+        8,
+        7,
+        6,
+        10,
+        9,
+        8,
+        7,
+        6,
+        10,
+        9,
+        8,
+        7,
+        6,
+        10
+      ]
+    }
+  ],
+  "validation": "PASS",
+  "validation_details": {
+    "pass": true,
+    "violations": []
+  }
+}

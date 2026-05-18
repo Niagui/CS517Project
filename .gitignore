@@ -1,0 +1,8 @@
+.vscode/
+.claude/
+agent.md
+.cache
+
+__pycache__/
+*.py[codz]
+*$py.class
