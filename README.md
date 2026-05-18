@@ -144,7 +144,7 @@ output JSON (`clause_counts_per_group`).
 ## Project structure
 
 ```
-mapf_surveillance/
+src/
 ├── solver.py              # CLI entry point
 ├── encoding.py            # SMT constraint functions (one per group)
 ├── validator.py           # post-solve solution validator
