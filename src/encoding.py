@@ -139,6 +139,8 @@ def latency_satisfaction(
         T_v = _lookup_latency(latency, v)
         if T_v <= 0:
             continue
+        if T_v >= 999:
+            continue
         if T_v > horizon:
             visits = [
                 at[i][t][v] for i in range(num_drones) for t in range(horizon + 1)

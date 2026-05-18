@@ -40,12 +40,13 @@ Scenario files are JSON. Example (`scenario.json`):
 ```
 
 * `edges` entries are `[node_a, node_b, travel_time]` and are undirected.
-* `latency` keys are node ids (as strings); the depot uses the sentinel `999`
-  to indicate "no latency constraint".
+* `latency` keys are node ids (as strings); the sentinel `999` indicates
+  "no latency constraint" and is always used for the depot (and may be used
+  for other nodes to disable their latency requirement).
 * `battery` is the per-drone budget that resets every time the drone is at the
   depot.
-* `horizon` is the planning horizon `H` in unit timesteps. The solver
-  produces paths of length `H + 1`.
+* `horizon` is the planning horizon $H$ in unit timesteps. The solver
+  produces paths of length $H + 1$.
 
 ## Usage
 
@@ -102,24 +103,24 @@ Variables:
 
 | Symbol | Type | Meaning |
 |---|---|---|
-| `at[i][t][v]` | Bool | drone *i* is at node *v* at timestep *t* |
-| `battery[i][t]` | Int | remaining battery for drone *i* at timestep *t* |
+| $\mathrm{at}[i][t][v]$ | Bool | drone $i$ is at node $v$ at timestep $t$ |
+| $\mathrm{bat}[i][t]$ | Int | remaining battery for drone $i$ at timestep $t$ |
 
 Constraint groups (each lives in its own function in
 [encoding.py](encoding.py)):
 
 1. **Initial / terminal placement** — every drone starts and ends at the
    depot.
-2. **Exactly one location** — `ExactlyOne(at[i][t][v] for v)` per (drone,
-   timestep).
+2. **Exactly one location** — $\mathrm{ExactlyOne}\bigl(\mathrm{at}[i][t][v] : v \in V\bigr)$
+   per (drone, timestep).
 3. **Valid movement** — between consecutive timesteps the drone either stays
    or traverses an edge.
-4. **Latency satisfaction** — for every non-depot node *v* and every window of
-   `T_v` consecutive timesteps, at least one drone visits *v*.
+4. **Latency satisfaction** — for every non-depot node $v$ and every window of
+   $T_v$ consecutive timesteps, at least one drone visits $v$.
 5. **Battery drain** — battery drops by the edge weight on every move,
    unchanged when staying.
-6. **Battery reset** — battery equals `B` whenever the drone is at the depot.
-7. **Battery non-negative** — `battery[i][t] >= 0` always.
+6. **Battery reset** — battery equals $B$ whenever the drone is at the depot.
+7. **Battery non-negative** — $\mathrm{bat}[i][t] \geq 0$ always.
 
 A unit timestep represents one discrete action by each drone (move along an
 edge or wait). Edge weights are treated as **battery cost per traversal**;
@@ -132,11 +133,11 @@ For each solve we report:
 
 | Metric | Formula |
 |---|---|
-| Boolean variables | `k * (H + 1) * n` |
-| Integer variables | `k * (H + 1)` |
-| Latency clauses | `n * H` (approx) |
-| Movement clauses | `k * H * n * (n - 1)` worst case (one disallow per missing edge) |
-| Battery clauses | `k * H` |
+| Boolean variables | $k(H+1)n$ |
+| Integer variables | $k(H+1)$ |
+| Latency clauses | $n \cdot H$ (approx) |
+| Movement clauses | $k \cdot H \cdot n(n-1)$ worst case (one disallow per missing edge) |
+| Battery clauses | $k \cdot H$ |
 
 The exact per-group clause counts are printed to stdout and persisted into the
 output JSON (`clause_counts_per_group`).
