@@ -355,7 +355,7 @@ timeout).
 ## 4. Code organization
 
 ```
-mapf_surveillance/
+src/
 ├── solver.py              CLI; loads JSON, calls encoding, runs Z3,
 │                          decodes the model, validates, writes output.
 ├── encoding.py            One function per constraint group Φ_j.
