@@ -352,7 +352,7 @@ timeout).
 
 ---
 
-## 4. Code organisation
+## 4. Code organization
 
 ```
 mapf_surveillance/
@@ -363,8 +363,6 @@ mapf_surveillance/
 ├── generate_instances.py  Materialises the named instances in §6.
 ├── benchmark.py           Runs every JSON in instances/, writes CSV.
 ├── requirements.txt
-├── README.md
-├── REPORT.md              (this file)
 ├── instances/             generated scenario JSONs
 └── results/               solver outputs (one JSON per instance)
 ```
