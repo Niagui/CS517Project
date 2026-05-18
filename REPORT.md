@@ -208,16 +208,16 @@ $(u, v) \in \overleftrightarrow{E}$. $\checkmark$
 
 **(3) Latency.** Fix $v \in V \setminus \{d\}$.
 
-  *Case $T_v \leq H$.* Fix a window $[s, s + T_v - 1] \subseteq \{0, \dots, H\}$.
+  _Case_ $T_v \leq H$. Fix a window $[s, s + T_v - 1] \subseteq \{0, \dots, H\}$.
   The corresponding clause of $\Phi_4$ is
   $\bigvee_{i,\, t' \in [s, s + T_v - 1]} \mathrm{at}[i][t'][v]$.
   Since $M \models \Phi_4$, at least one disjunct is true, so there exists
   $(i, t')$ with $\sigma_i(t') = v$. $\checkmark$
 
-  *Case $H < T_v < \infty$.* By $\Phi_4$ there exist $i, t$ with
+  _Case_ $H < T_v < \infty$. By $\Phi_4$ there exist $i, t$ with
   $M(\mathrm{at}[i][t][v]) = \top$, so $\sigma_i(t) = v$. $\checkmark$
 
-  *Case $T_v = \infty$.* $\Phi_4$ contains no clause for $v$; validity
+  _Case_ $T_v = \infty$. $\Phi_4$ contains no clause for $v$; validity
   rule (3) is vacuous. $\checkmark$
 
 **(4) Battery.** Let $\beta_i(t) := M(\mathrm{bat}[i][t])$. We prove, by
@@ -229,11 +229,11 @@ $$
 
 where $b_i$ is the value mandated by §1(4).
 
-  *Base $t = 0$.* By $\Phi_1$ and $\Phi_2$, $\sigma_i(0) = d$, so
+  _Base_ ($t = 0$). By $\Phi_1$ and $\Phi_2$, $\sigma_i(0) = d$, so
   $\mathrm{at}[i][0][d]$ is true and $\Phi_6$ yields $\beta_i(0) = B = b_i(0)$.
   $\checkmark$ Non-negativity is $\Phi_7$. $\checkmark$
 
-  *Step.* Assume the invariant holds at $t$. Let $u = \sigma_i(t)$,
+  _Step._ Assume the invariant holds at $t$. Let $u = \sigma_i(t)$,
   $v = \sigma_i(t+1)$. By soundness of movement (above), $u = v$ or
   $(u, v) \in \overleftrightarrow{E}$. We split on $v$.
 
@@ -290,11 +290,11 @@ contradiction. Hence the clause holds. $\checkmark$
 
 **$M \models \Phi_4$.** Fix any latency clause for a node $v \neq d$.
 
-  *Window clause ($T_v \leq H$).* Validity (3) gives $i, t'$ with
+  _Window clause_ ($T_v \leq H$). Validity (3) gives $i, t'$ with
   $\sigma_i(t') = v$ and $t' \in [s, s + T_v - 1]$, so
   $M(\mathrm{at}[i][t'][v]) = \top$. $\checkmark$
 
-  *Global clause ($H < T_v < \infty$).* Same argument with the trivial
+  _Global clause_ ($H < T_v < \infty$). Same argument with the trivial
   window $[0, H]$. $\checkmark$
 
 **$M \models \Phi_5$.** Both (a) and (b) are implications. We need each
